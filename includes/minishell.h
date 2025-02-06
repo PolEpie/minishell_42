@@ -147,9 +147,10 @@ int		handle_lst_status(t_ht *env, int last_status);
 void	handle_signals_heredoc(int signo);
 void	setup_term_signals(void);
 void	setup_cmd_signals(void);
-void	setup_heredoc_signals(void);
 void	handle_sigint_noredisplay(int signo);
 void	handle_sigint_null(int signo);
+void	sigquit_handler(int signo);
+void	handle_sigint(int signo);
 
 /* command/cd */
 int		ft_cd(int argc, char **argv, t_ht *env);

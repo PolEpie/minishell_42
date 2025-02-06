@@ -40,8 +40,8 @@ gerer export avec _
 -x echo a'b'
 -x ab
 
-- Leaks avec `< Makefile cat |`
-- `cat` CTRL + C affiche 2 terminal
+-x Leaks avec `< Makefile cat |`
+-x `cat` CTRL + C affiche 2 terminal
 - Makefile qui fait pas de .o
 - -Wall -Werror -Wextra
 
