@@ -48,6 +48,7 @@ t_exec	*init_exec(void)
 {
 	t_exec	*tmp_exec;
 
+	ft_printf("init_exec\n");
 	tmp_exec = malloc(sizeof(t_exec));
 	if (!tmp_exec)
 		return (NULL);
@@ -64,10 +65,12 @@ void	end_replace(t_pars *pars)
 		pars->tmp_exec->argv[pars->tmp_exec->i] = NULL;
 	if (pars->tmp_exec->i > 0)
 	{
+		ft_printf("5push\n");
 		ft_lstadd_back(pars->ret, ft_lstnew(pars->tmp_exec));
 	}
 	else
 	{
+		ft_printf("9push\n");
 		free(pars->tmp_exec->argv);
 		free(pars->tmp_exec);
 	}

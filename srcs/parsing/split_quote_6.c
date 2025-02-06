@@ -14,6 +14,19 @@
 
 void	free_pars(t_pars *pars)
 {
+	int	i;
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	i = 0;
+	tmp = *pars->ret;
+	/* while (tmp)
+	{
+		tmp2 = tmp->next;
+		free(tmp);
+		tmp = tmp2;
+	} */
+	/* free(pars->ret); */
 	/* if (pars->tmp_exec)
 	{
 		free(pars->tmp_exec->argv);
@@ -21,6 +34,7 @@ void	free_pars(t_pars *pars)
 	} */
 	free(pars);
 }
+
 
 
 int	sq_replace_and_free(t_list *elements, t_list **ret, t_ht *env)
@@ -33,6 +47,7 @@ int	sq_replace_and_free(t_list *elements, t_list **ret, t_ht *env)
 		return (1);
 	while (pars->elements)
 	{
+		ft_printf("--\n");
 		if (((t_splitted *)pars->elements->content)->is_delimiter)
 		{
 			status = handle_delimiter(pars, env);

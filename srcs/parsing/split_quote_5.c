@@ -24,6 +24,7 @@ int	process_next_elem(t_pars *pars, int delimiter, t_ht *env)
 		pars->tmp_exec->argv[pars->tmp_exec->i] = ft_strdup(pars->tmp->content);
 		free(pars->tmp->content);
 		pars->tmp->content = NULL;
+		ft_printf("=argv[%d] %s\n", pars->tmp_exec->i, pars->tmp_exec->argv[pars->tmp_exec->i]);
 		pars->tmp_exec->argv[pars->tmp_exec->i + 1] = NULL;
 	}
 	pars->elements = pars->elements->next;
@@ -92,6 +93,7 @@ t_pars	*create_pars(t_list **ret, t_list *elements)
 		return (NULL);
 	pars->ret = ret;
 	pars->elements = elements;
+	ft_printf("create_pars\n");
 	pars->tmp_exec = init_exec();
 	pars->last_neutral = NULL;
 	pars->delimiter = -1;
@@ -116,6 +118,7 @@ int	to_argv(t_pars *pars)
 			pars->elements->content)->content);
 	free(((t_splitted *)pars->elements->content)->content);
 	((t_splitted *)pars->elements->content)->content = NULL;
+	ft_printf("fargv[%d] %s\n", pars->tmp_exec->i, pars->tmp_exec->argv[pars->tmp_exec->i]);
 	pars->tmp_exec->argv[pars->tmp_exec->i + 1] = NULL;
 	pars->tmp_exec->i++;
 	pars->elements = pars->elements->next;
